@@ -23,11 +23,21 @@ namespace Vives_FrietShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(String naam)
+        public IActionResult Toevoegen(String naam)
         {
             var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == naam);
             
             _database.Winkelmandje.Add(databaseItem);
+            
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Verwijderen(String naam)
+        {
+            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == naam);
+            
+            _database.Winkelmandje.Remove(databaseItem);
             
             return RedirectToAction("Index");
         }
