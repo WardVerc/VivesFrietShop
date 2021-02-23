@@ -1,5 +1,12 @@
-﻿@{
+﻿@model IEnumerable<Vives_FrietShop.Models.ShopItem>;
+
+@using System.Globalization
+
+
+@{
     ViewData["Title"] = "Home Page";
+    
+    var culture = CultureInfo.CreateSpecificCulture("nl-BE");
 }
 
 <div class="text-center">
@@ -9,6 +16,12 @@
 <div class="row mt-5 align-items-center text-center">
 <div class="col">
     <h4>Maak jouw bestelling:</h4>
+    
+    @foreach (var item in Model)
+    {
+        <button type="submit">@item.Naam (@item.Prijs.ToString("C", culture)) +</button>
+    }
+    
 </div>
 
 <div class="col">
