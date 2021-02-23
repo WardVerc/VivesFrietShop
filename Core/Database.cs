@@ -71,6 +71,12 @@ namespace Vives_FrietShop.Core
                 {
                     Naam = "Satékruiden",
                     Prijs = 0.2
+                },
+                
+                new ShopItem
+                {
+                    Naam = "Pintje 25cl",
+                    Prijs = 1.0
                 }
             };
 
