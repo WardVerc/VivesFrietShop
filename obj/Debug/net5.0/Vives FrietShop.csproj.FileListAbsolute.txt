@@ -1,0 +1,39 @@
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\appsettings.Development.json
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\appsettings.json
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.exe
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.deps.json
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.runtimeconfig.json
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.runtimeconfig.dev.json
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.dll
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\ref\Vives FrietShop.dll
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.pdb
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.Views.dll
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\bin\Debug\net5.0\Vives FrietShop.Views.pdb
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.csprojAssemblyReference.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.GeneratedMSBuildEditorConfig.editorconfig
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.AssemblyInfoInputs.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.AssemblyInfo.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.csproj.CoreCompileInputs.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.MvcApplicationPartsAssemblyInfo.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.RazorAssemblyInfo.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.RazorAssemblyInfo.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\staticwebassets\Vives FrietShop.StaticWebAssets.Manifest.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\staticwebassets\Vives FrietShop.StaticWebAssets.xml
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\scopedcss\bundle\Vives FrietShop.styles.css
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.TagHelpers.input.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.TagHelpers.output.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.RazorCoreGenerate.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.RazorTargetAssemblyInfo.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.RazorTargetAssemblyInfo.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.Views.pdb
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.dll
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\ref\Vives FrietShop.dll
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.pdb
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.genruntimeconfig.cache
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.csproj.CopyComplete
