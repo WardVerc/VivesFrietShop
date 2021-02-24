@@ -15,14 +15,10 @@
     }
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welkom bij Vives FrietShop!</h1>
-</div>
-
 <div class="row mt-5">
 <div class="col">
     <h4>Maak jouw bestelling:</h4>
-    <form method="post">
+    <form method="post" class="mt-5">
         @foreach (var item in @Model.ShopItems)
         {
             <button type="submit" class="btn btn-secondary m-1"

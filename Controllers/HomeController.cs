@@ -31,9 +31,9 @@ namespace Vives_FrietShop.Controllers
         [HttpPost]
         public IActionResult Verwijderen(int id)
         {
-            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
+            var mandjeItem = _database.Winkelmandje.SingleOrDefault(a => a.Id == id);
             
-            _database.Winkelmandje.Remove(databaseItem);
+            _database.Winkelmandje.Remove(mandjeItem);
             
             return RedirectToAction("Index");
         }
