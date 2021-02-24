@@ -1,0 +1,28 @@
+﻿@using System.Globalization
+@model IEnumerable<ShopItem>;
+
+@{
+    var culture = CultureInfo.CreateSpecificCulture("nl-BE");
+}
+
+<div class="row mt-5">
+    <div class="col">
+        @foreach (var item in @Model)
+        {
+            <button type="submit" class="btn btn-secondary m-1"
+                    style="width: 50%;">
+                        @item.Naam (@item.Prijs.ToString("C", culture))
+            </button>
+        }
+    </div>
+    
+    <div class="col">
+        <form method="post">
+            <label>Naam</label>
+            <input class="form-control"/>
+            <label>Prijs</label>
+            <input class="form-control"/>
+        </form>
+    </div>
+    
+</div>
