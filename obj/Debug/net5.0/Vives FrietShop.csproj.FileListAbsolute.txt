@@ -40,3 +40,4 @@ D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietSh
 D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Home\Betalen.cshtml.g.cs
 D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Home\Einde.cshtml.g.cs
 D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\ProductBeheer\Index.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\ProductBeheer\Edit.cshtml.g.cs

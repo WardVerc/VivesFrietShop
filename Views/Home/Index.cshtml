@@ -27,7 +27,7 @@
         {
             <button type="submit" class="btn btn-secondary m-1"
                     style="width: 50%;"
-                    asp-action="Toevoegen" asp-route-naam="@item.Naam">
+                    asp-action="Toevoegen" asp-route-id="@item.Id">
                 @item.Naam (@item.Prijs.ToString("C", culture)) +
             </button>
         }
@@ -42,7 +42,7 @@
         {
             <button type="submit" class="btn btn-warning m-1"
                     style="width: 45%"
-                    asp-action="Verwijderen" asp-route-naam="@item.Naam">
+                    asp-action="Verwijderen" asp-route-id="@item.Id">
                 @item.Naam (@item.Prijs.ToString("C", culture)) -
             </button>
         }

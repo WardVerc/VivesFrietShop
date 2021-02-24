@@ -7,5 +7,6 @@ namespace Vives_FrietShop.Models
         public string Naam { get; set; }
         public double Prijs { get; set; }
         
+        public int Id { get; set; }
     }
 }

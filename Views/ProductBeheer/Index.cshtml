@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using System.Linq
 @model IEnumerable<ShopItem>;
 
 @{
@@ -9,19 +10,30 @@
     <div class="col">
         @foreach (var item in @Model)
         {
-            <button type="submit" class="btn btn-secondary m-1"
-                    style="width: 50%;">
+            <div class="row">
+                <form method="get" style="width: 50%;">
+                    <button type="submit" class="btn btn-secondary m-1"
+                             style="width: 100%;" asp-action="Edit" asp-route-id="@item.Id" >
                         @item.Naam (@item.Prijs.ToString("C", culture))
-            </button>
+                    </button>
+                </form>
+            
+                <form method="post" class="ml-1">
+                    <button type="submit" class="btn btn-danger m-1" 
+                            asp-action="Delete" asp-route-id="@item.Id"
+                    >Verwijder</button>
+                </form>
+            </div>
         }
     </div>
     
     <div class="col">
         <form method="post">
-            <label>Naam</label>
-            <input class="form-control"/>
-            <label>Prijs</label>
-            <input class="form-control"/>
+            <label asp-for="@Model.First().Naam"></label>
+            <input asp-for="@Model.First().Naam" class="form-control" value="" />
+            <label asp-for="@Model.First().Prijs" class="mt-3" >Prijs</label>
+            <input asp-for="@Model.First().Prijs" class="form-control" value="" />
+            <input type="submit" class="btn btn-primary mt-3" value="Opslaan" />
         </form>
     </div>
     

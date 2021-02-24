@@ -1,10 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Vives_FrietShop.Core;
-using Vives_FrietShop.Models;
-
-
 
 namespace Vives_FrietShop.Controllers
 {
@@ -23,9 +19,9 @@ namespace Vives_FrietShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Toevoegen(String naam)
+        public IActionResult Toevoegen(int id)
         {
-            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == naam);
+            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
             
             _database.Winkelmandje.Add(databaseItem);
             
@@ -33,9 +29,9 @@ namespace Vives_FrietShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Verwijderen(String naam)
+        public IActionResult Verwijderen(int id)
         {
-            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == naam);
+            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
             
             _database.Winkelmandje.Remove(databaseItem);
             
