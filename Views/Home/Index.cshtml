@@ -46,6 +46,9 @@
         }
     </form>
     
-    <h5 class="mt-5">Totaalprijs: @totaalPrijs.ToString("C", culture)</h5>
+    <form method="post">
+        <h5 class="mt-5">Totaalprijs: @totaalPrijs.ToString("C", culture)</h5>
+        <button type="submit" class="btn btn-primary" asp-action="Betalen">Bestel!</button>
+    </form>
 </div>
 </div>

@@ -42,6 +42,24 @@ namespace Vives_FrietShop.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult Betalen()
+        {
+            return View(_database.Winkelmandje);
+        }
+
+        [HttpPost]
+        public IActionResult Einde()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LeegWinkelmandje()
+        {
+            _database.Winkelmandje.Clear();
+            return RedirectToAction("Index");
+        }
         
     }
 }

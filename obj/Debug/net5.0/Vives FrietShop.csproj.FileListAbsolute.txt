@@ -37,3 +37,5 @@ D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\ref\Vives Fri
 D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.pdb
 D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.genruntimeconfig.cache
 D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Vives FrietShop.csproj.CopyComplete
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Home\Betalen.cshtml.g.cs
+D:\Vives\Projecten Rider - WebDev\Vives FrietShop\obj\Debug\net5.0\Razor\Views\Home\Einde.cshtml.g.cs

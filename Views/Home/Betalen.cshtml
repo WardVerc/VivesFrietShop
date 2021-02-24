@@ -1,0 +1,41 @@
+﻿@using System.Globalization
+@model IEnumerable<ShopItem>;
+
+@{
+    var culture = CultureInfo.CreateSpecificCulture("nl-BE");
+
+    var totaalPrijs = 0.0;
+    foreach (var item in @Model)
+    {
+        totaalPrijs = totaalPrijs + item.Prijs;
+    }
+}
+
+<h2>Betaling</h2>
+
+<div class="row mt-5">
+<div class="col">
+    <h4>Jouw bestelling:</h4>
+    <ul>
+        @foreach (var item in @Model)
+        {
+            <li>
+                @item.Naam (@item.Prijs.ToString("C", culture))
+            </li>
+        }
+    </ul>
+
+    <h5 class="mt-5">Totaalprijs: @totaalPrijs.ToString("C", culture)</h5>
+</div>
+
+    <div class="col">
+        <form method="post">
+            <button type="submit" class="btn btn-primary m-1" style="width: 50%;"
+                    asp-action="Einde">ING</button>
+            <button type="submit" class="btn btn-primary m-1" style="width: 50%;"
+                    asp-action="Einde">KBC</button>
+            <button type="submit" class="btn btn-primary m-1" style="width: 50%;"
+                    asp-action="Einde">PayPal</button>
+        </form>
+    </div>
+</div>
