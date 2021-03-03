@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Vives_FrietShop.Core;
+using Vives_FrietShop.DataAccess;
 
 namespace Vives_FrietShop
 {
@@ -24,6 +26,12 @@ namespace Vives_FrietShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("Default"));
+            });
+            
+            
             services.AddControllersWithViews();
 
             var database = new Database();
