@@ -7,5 +7,6 @@ namespace Vives_FrietShop.DataAccess
     {
         public DatabaseContext(DbContextOptions options) : base(options) { }
         public DbSet<ShopItem> ShopItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
