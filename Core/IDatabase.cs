@@ -7,7 +7,6 @@ namespace Vives_FrietShop.Core
     {
         IList<ShopItem> ShopItems { get; set; }
         IList<ShopItem> Winkelmandje { get; set; }
-        void Initialize();
-            
+
     }
 }

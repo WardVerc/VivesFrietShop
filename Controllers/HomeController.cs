@@ -1,16 +1,21 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Vives_FrietShop.Core;
+using Vives_FrietShop.DataAccess;
+using Vives_FrietShop.Models;
 
 namespace Vives_FrietShop.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IDatabase _database;
+        private readonly DatabaseContext _databaseContext;
 
-        public HomeController(IDatabase database)
+        public HomeController(IDatabase database, DatabaseContext databaseContext)
         {
             _database = database;
+            _databaseContext = databaseContext;
         }
         
         public IActionResult Index()

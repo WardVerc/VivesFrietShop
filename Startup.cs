@@ -35,7 +35,6 @@ namespace Vives_FrietShop
             services.AddControllersWithViews();
 
             var database = new Database();
-            database.Initialize();
             services.AddSingleton<IDatabase>(database);
         }
 
