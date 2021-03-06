@@ -6,31 +6,7 @@ namespace Vives_FrietShop.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Orderlines",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    ShopItemId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orderlines", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orderlines_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Orderlines_Orders_ShopItemId",
-                        column: x => x.ShopItemId,
-                        principalTable: "ShopItems",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
+            
 
             migrationBuilder.CreateTable(
                 name: "Orders",
@@ -51,13 +27,38 @@ namespace Vives_FrietShop.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Prijs = table.Column<double>(type: "float", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: true)
+                    Prijs = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ShopItems", x => x.Id);
                     
+                });
+            
+            migrationBuilder.CreateTable(
+                name: "Orderlines",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    ShopItemId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orderlines", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orderlines_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Orderlines_ShopItems_ShopItemId",
+                        column: x => x.ShopItemId,
+                        principalTable: "ShopItems",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
             
         }

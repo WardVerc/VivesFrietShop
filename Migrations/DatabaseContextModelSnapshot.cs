@@ -31,24 +31,6 @@ namespace Vives_FrietShop.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Vives_FrietShop.Models.Orderline", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ShopItemId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Orderlines");
-                });
-
             modelBuilder.Entity("Vives_FrietShop.Models.ShopItem", b =>
                 {
                     b.Property<int>("Id")
@@ -66,6 +48,24 @@ namespace Vives_FrietShop.Migrations
 
                     b.ToTable("ShopItems");
                 });
+            
+            modelBuilder.Entity("Vives_FrietShop.Models.Orderline", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .UseIdentityColumn();
+
+                b.Property<int>("OrderId")
+                    .HasColumnType("int");
+
+                b.Property<int>("ShopItemId")
+                    .HasColumnType("int");
+
+                b.HasKey("Id");
+
+                b.ToTable("Orderlines");
+            });
 
             modelBuilder.Entity("Vives_FrietShop.Models.Orderline", b =>
                 {
