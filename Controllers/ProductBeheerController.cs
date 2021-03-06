@@ -1,61 +1,57 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Vives_FrietShop.Core;
+using Vives_FrietShop.DataAccess;
 using Vives_FrietShop.Models;
+using Vives_FrietShop.ViewModels;
 
 namespace Vives_FrietShop.Controllers
 {
     public class ProductBeheerController : Controller
     {
-        private readonly IDatabase _database;
+        private readonly DatabaseContext _database;
 
-        public ProductBeheerController(IDatabase database)
+        public ProductBeheerController(DatabaseContext database)
         {
             _database = database;
         }
         
         public IActionResult Index()
         {
-            return View(_database.ShopItems);
+            var shopItem = new ShopItem();
+
+            ShopListShopItemViewModel model = new ShopListShopItemViewModel()
+            {
+                ShopItems = _database.ShopItems,
+                ShopItem = shopItem
+            };
+            
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult Index(String naam, double prijs)
+        public IActionResult Index(ShopListShopItemViewModel item)
         {
             
-            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == naam);
+            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == item.ShopItem.Naam);
 
             if (databaseItem != null)
             {
-                Console.Write("Product " + naam + " bestaat al!");
+                Console.Write("Product " + item.ShopItem.Naam + " bestaat al!");
                 return RedirectToAction("Index");
             }
             else
             {
                 ShopItem newItem = new ShopItem()
                 {
-                    Naam = naam,
-                    Prijs = prijs,
-                    Id = GetNewId()
+                    Naam = item.ShopItem.Naam,
+                    Prijs = item.ShopItem.Prijs
                 };
                 _database.ShopItems.Add(newItem);
+                _database.SaveChanges();
                 return RedirectToAction("Index");
             }
             
-        }
-
-        public int GetNewId()
-        {
-            if (_database.ShopItems.Any())
-            {
-                var getMaxId = _database.ShopItems.Max(i => i.Id);
-                return getMaxId += 1;
-            }
-            else
-            {
-                return 1;
-            }
         }
 
         [HttpPost]
@@ -71,9 +67,9 @@ namespace Vives_FrietShop.Controllers
             else
             {
                 _database.ShopItems.Remove(databaseItem);
+                _database.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
         }
 
         [HttpGet]
@@ -107,6 +103,9 @@ namespace Vives_FrietShop.Controllers
                 //wijzig de originele databaseitem.Naam met item.Naam , zelfde voor prijs
                 databaseItem.Naam = item.Naam;
                 databaseItem.Prijs = item.Prijs;
+                
+                _database.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
         }

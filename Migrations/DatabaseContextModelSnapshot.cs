@@ -31,6 +31,24 @@ namespace Vives_FrietShop.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("Vives_FrietShop.Models.Orderline", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShopItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orderlines");
+                });
+
             modelBuilder.Entity("Vives_FrietShop.Models.ShopItem", b =>
                 {
                     b.Property<int>("Id")
@@ -41,30 +59,25 @@ namespace Vives_FrietShop.Migrations
                     b.Property<string>("Naam")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Prijs")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
-
                     b.ToTable("ShopItems");
                 });
 
-            modelBuilder.Entity("Vives_FrietShop.Models.ShopItem", b =>
+            modelBuilder.Entity("Vives_FrietShop.Models.Orderline", b =>
                 {
                     b.HasOne("Vives_FrietShop.Models.Order", null)
-                        .WithMany("Winkelmandje")
+                        .WithOne("OrderId")
                         .HasForeignKey("OrderId");
-                });
 
-            modelBuilder.Entity("Vives_FrietShop.Models.Order", b =>
-                {
-                    b.Navigation("Winkelmandje");
+                    b.HasOne("Vives_FrietShop.Models.ShopItem", null)
+                        .WithOne("ShopItemId")
+                        .HasForeignKey("ShopItemId");
                 });
+            
 #pragma warning restore 612, 618
         }
     }

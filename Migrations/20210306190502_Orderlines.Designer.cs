@@ -10,8 +10,8 @@ using Vives_FrietShop.DataAccess;
 namespace Vives_FrietShop.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210305183931_AddedOrder")]
-    partial class AddedOrder
+    [Migration("20210306190502_Orderlines")]
+    partial class Orderlines
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,24 @@ namespace Vives_FrietShop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Vives_FrietShop.Models.Orderline", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShopItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orderlines");
                 });
 
             modelBuilder.Entity("Vives_FrietShop.Models.ShopItem", b =>
