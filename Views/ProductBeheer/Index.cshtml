@@ -29,11 +29,18 @@
     <div class="col">
         <h4>Nieuw item</h4>
         <form method="post" class="mt-3">
-            <input asp-for="ShopItem.Id" type="hidden" value="@Model.ShopItem.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="ShopItem.Id" type="hidden" value="@Model.ShopItem.Id"/>
             <label asp-for="ShopItem.Naam"></label>
-            <input asp-for="ShopItem.Naam" class="form-control" value="" />
-            <label asp-for="ShopItem.Prijs" class="mt-3">Prijs</label>
-            <input asp-for="ShopItem.Prijs" class="form-control" value="" />
+            <input asp-for="ShopItem.Naam" class="form-control" value=""/>
+            <span asp-validation-for="ShopItem.Naam" class="text-danger"></span>
+            <br />
+            
+            <label asp-for="ShopItem.Prijs" class="mt-3"></label>
+            <input asp-for="ShopItem.Prijs" class="form-control" value=""/>
+            <span asp-validation-for="ShopItem.Prijs" class="text-danger"></span>
+            <br />
+            
             <input type="submit" class="btn btn-primary mt-3" value="Nieuw item maken"/>
         </form>
     </div>

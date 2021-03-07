@@ -30,8 +30,14 @@ namespace Vives_FrietShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(ShopListShopItemViewModel item)
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+            
             
             var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Naam == item.ShopItem.Naam);
 
@@ -55,11 +61,15 @@ namespace Vives_FrietShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
-
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             
+            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
             
             if (databaseItem == null)
             {
@@ -101,8 +111,14 @@ namespace Vives_FrietShop.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(ShopItem item)
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Edit");
+            }
+            
             var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == item.Id);
 
             if (databaseItem == null)
