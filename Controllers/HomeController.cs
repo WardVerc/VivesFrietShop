@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Vives_FrietShop.Core;
 using Vives_FrietShop.DataAccess;
@@ -57,6 +58,24 @@ namespace Vives_FrietShop.Controllers
         [HttpPost]
         public IActionResult Einde()
         {
+            //check eerst dat alle items in Winkelmand nog bestaan in ShopItems
+            //zonder check krijg je later bij .SaveChanges() een SQL/DB-error:
+            //indien items in winkelmand ligt
+            //en item wordt verwijderd uit productbeheer
+            //en dan wordt order geplaatst -> SQL/DB-error
+            //want ShopItem bestaat niet meer
+
+            foreach (var item in _database.Winkelmandje)
+            {
+                var databaseitem = _databaseContext.ShopItems.SingleOrDefault(a => a.Id == item.Id);
+                if (databaseitem == null)
+                {
+                    Console.Write("Onbekend item in winkelmand!");
+                    _database.Winkelmandje.Clear();
+                    return RedirectToAction("Index");
+                }
+            }
+            
             Order order = new Order();
             _databaseContext.Add(order);
             _databaseContext.SaveChanges();
