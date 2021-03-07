@@ -11,7 +11,7 @@ namespace Vives_FrietShop.Models
         public string Naam { get; set; }
         
         [DisplayName("Prijs:")]
-        [RegularExpression(@"[0-9]+(\.[0-9][0-9]?)?", ErrorMessage = "De prijs moet uit cijfers bestaan met minimum 1 cijfer voor en maximum 2 cijfers na de komma (gebruik een '.' als komma).")]
+        [RegularExpression(@"[0-9]{1,4}(\.[0-9][0-9]?)?", ErrorMessage = "De prijs moet uit cijfers bestaan met minimum 1, maximum 4 cijfers voor en maximum 2 cijfers na de komma (gebruik een '.' als komma).")]
         public double Prijs { get; set; }
         
         public int Id { get; set; }
