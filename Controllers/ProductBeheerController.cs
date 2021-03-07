@@ -59,6 +59,8 @@ namespace Vives_FrietShop.Controllers
         {
             var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
 
+            
+            
             if (databaseItem == null)
             {
                 Console.Write("Product bestaat niet meer!");
@@ -66,6 +68,16 @@ namespace Vives_FrietShop.Controllers
             }
             else
             {
+                //verwijder eerst alle orderlines met dit ShopItem
+                //anders DB-error
+                foreach (var orderline in _database.Orderlines)
+                {
+                    if (orderline.ShopItemId == id)
+                    {
+                        _database.Orderlines.Remove(orderline);
+                    }
+                }
+                
                 _database.ShopItems.Remove(databaseItem);
                 _database.SaveChanges();
                 return RedirectToAction("Index");

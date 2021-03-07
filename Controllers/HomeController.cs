@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Vives_FrietShop.Core;
 using Vives_FrietShop.DataAccess;
 using Vives_FrietShop.Models;
+using Vives_FrietShop.ViewModels;
 
 namespace Vives_FrietShop.Controllers
 {
@@ -20,13 +20,19 @@ namespace Vives_FrietShop.Controllers
         
         public IActionResult Index()
         {
-            return View(_database);
+            ShopItemsWinkelmandjeViewModel model = new ShopItemsWinkelmandjeViewModel()
+            {
+                ShopItems = _databaseContext.ShopItems,
+                Winkelmandje = _database.Winkelmandje
+            };
+            
+            return View(model);
         }
 
         [HttpPost]
         public IActionResult Toevoegen(int id)
         {
-            var databaseItem = _database.ShopItems.SingleOrDefault(a => a.Id == id);
+            var databaseItem = _databaseContext.ShopItems.SingleOrDefault(a => a.Id == id);
             
             _database.Winkelmandje.Add(databaseItem);
             
@@ -36,9 +42,8 @@ namespace Vives_FrietShop.Controllers
         [HttpPost]
         public IActionResult Verwijderen(int id)
         {
-            var mandjeItem = _database.Winkelmandje.SingleOrDefault(a => a.Id == id);
-            
-            _database.Winkelmandje.Remove(mandjeItem);
+            var mandjeItem = _database.Winkelmandje.FirstOrDefault(a => a.Id == id);
+            _database.Winkelmandje.RemoveAt(_database.Winkelmandje.IndexOf(mandjeItem));
             
             return RedirectToAction("Index");
         }
@@ -52,6 +57,22 @@ namespace Vives_FrietShop.Controllers
         [HttpPost]
         public IActionResult Einde()
         {
+            Order order = new Order();
+            _databaseContext.Add(order);
+            _databaseContext.SaveChanges();
+
+            foreach (var item in _database.Winkelmandje)
+            {
+                Orderline orderline = new Orderline()
+                {
+                    OrderId = order.Id,
+                    ShopItemId = item.Id
+                };
+
+                _databaseContext.Orderlines.Add(orderline);
+                _databaseContext.SaveChanges();
+            }
+            
             return View();
         }
 
