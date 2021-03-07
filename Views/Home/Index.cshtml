@@ -6,8 +6,10 @@
 @{
     ViewData["Title"] = "Home Page";
     
+    //culture wordt gebruikt om een prijs in correcte vorm weer te geven
     var culture = CultureInfo.CreateSpecificCulture("nl-BE");
 
+    //berekenen totaalprijs van alle items in winkelmandje
     var totaalPrijs = 0.0;
     foreach (var item in @Model.Winkelmandje)
     {

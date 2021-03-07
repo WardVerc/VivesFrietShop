@@ -10,6 +10,8 @@ namespace Vives_FrietShop.DataAccess
         public DbSet<Order> Orders { get; set; }
         public DbSet<Orderline> Orderlines { get; set; }
 
+        //voor testing-doelen deze methode gebruikt, wordt verder niet gebruikt
+        //kan misschien nog van pas komen
         public void Initialize()
         {
             ShopItem een = new ShopItem()

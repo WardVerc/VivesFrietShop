@@ -10,7 +10,10 @@ namespace Vives_FrietShop.Controllers
 {
     public class HomeController : Controller
     {
+        //Front end database
         private readonly IDatabase _database;
+        
+        //In-memory database
         private readonly DatabaseContext _databaseContext;
 
         public HomeController(IDatabase database, DatabaseContext databaseContext)
@@ -33,8 +36,10 @@ namespace Vives_FrietShop.Controllers
         [HttpPost]
         public IActionResult Toevoegen(int id)
         {
+            //zoek de gekozen shopItem in de in-memory db
             var databaseItem = _databaseContext.ShopItems.SingleOrDefault(a => a.Id == id);
             
+            //voeg deze shopItem toe aan winkelmandje
             _database.Winkelmandje.Add(databaseItem);
             
             return RedirectToAction("Index");
@@ -43,6 +48,9 @@ namespace Vives_FrietShop.Controllers
         [HttpPost]
         public IActionResult Verwijderen(int id)
         {
+            //zoek de gekozen shopItem om te verwijderen uit winkelmandje
+            //indien er meerdere dezelfde shopItem in winkelmandje
+            //wordt enkel de eerst gevonden shopItem verwijderd
             var mandjeItem = _database.Winkelmandje.FirstOrDefault(a => a.Id == id);
             _database.Winkelmandje.RemoveAt(_database.Winkelmandje.IndexOf(mandjeItem));
             
@@ -76,10 +84,13 @@ namespace Vives_FrietShop.Controllers
                 }
             }
             
+            //Indien alle items winkelmand bestaan in In-memory database-ShopItems
+            //wordt order gemaakt 
             Order order = new Order();
             _databaseContext.Add(order);
             _databaseContext.SaveChanges();
 
+            //orderlines maken van winkelmand-items voor dit order
             foreach (var item in _database.Winkelmandje)
             {
                 Orderline orderline = new Orderline()

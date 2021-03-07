@@ -2,8 +2,10 @@
 @model IEnumerable<ShopItem>;
 
 @{
+    //culture wordt gebruikt om een prijs in correcte vorm weer te geven
     var culture = CultureInfo.CreateSpecificCulture("nl-BE");
 
+    //berekenen totaalprijs
     var totaalPrijs = 0.0;
     foreach (var item in @Model)
     {
